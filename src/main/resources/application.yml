@@ -1,23 +1,20 @@
 spring:
   application:
     name: value-added-services
-
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
   data:
     mongodb:
-      uri: ${MONGODB_URI:mongodb://localhost:27017/value_added_services}
-
+      uri: ${MONGODB_URI:mongodb://localhost:27017/vas}
+      auto-index-creation: true
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.cloudevents.kafka.CloudEventSerializer
-    consumer:
-      group-id: value-added-services
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: io.cloudevents.kafka.CloudEventDeserializer
 
 server:
-  port: 8097
+  port: ${SERVER_PORT:8097}
 
 management:
   endpoints:
@@ -29,7 +26,38 @@ management:
       prometheus:
         enabled: true
 
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+vas:
+  events:
+    topic: vas.events
+  workflow:
+    max-components-per-kit: 20
+    max-rework-attempts: 2
+  sla:
+    kitting-hours: 24
+    labeling-hours: 24
+    gift-wrap-hours: 12
+    customization-hours: 48
+    assembly-hours: 48
+    repackaging-hours: 24
+
 logging:
   level:
     root: INFO
-    com.paklog.value.added.services: DEBUG
+    com.paklog.vas: DEBUG
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
+  data:
+    mongodb:
+      uri: mongodb://mongodb:27017/vas
+  kafka:
+    bootstrap-servers: kafka:9092

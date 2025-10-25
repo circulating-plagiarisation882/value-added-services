@@ -1,9 +1,10 @@
 package com.paklog.vas.domain.service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.paklog.vas.domain.aggregate.VASOrder;
 import com.paklog.vas.domain.aggregate.WorkflowStep;
 import com.paklog.vas.domain.valueobject.ServiceType;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,9 +14,10 @@ import java.util.UUID;
 /**
  * Orchestrates VAS workflows based on service type
  */
-@Slf4j
 @Service
 public class WorkflowOrchestratorService {
+    private static final Logger log = LoggerFactory.getLogger(WorkflowOrchestratorService.class);
+
 
     public List<WorkflowStep> createWorkflowSteps(ServiceType serviceType) {
         return switch (serviceType) {

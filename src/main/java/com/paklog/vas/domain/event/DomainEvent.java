@@ -1,9 +1,7 @@
 package com.paklog.vas.domain.event;
 
-import lombok.Data;
 import java.time.Instant;
 
-@Data
 public abstract class DomainEvent {
     private final String eventId;
     private final Instant occurredAt;
@@ -11,6 +9,14 @@ public abstract class DomainEvent {
     protected DomainEvent() {
         this.eventId = java.util.UUID.randomUUID().toString();
         this.occurredAt = Instant.now();
+    }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public Instant getOccurredAt() {
+        return occurredAt;
     }
 
     public abstract String getEventType();

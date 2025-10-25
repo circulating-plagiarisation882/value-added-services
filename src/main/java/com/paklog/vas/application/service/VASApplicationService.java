@@ -1,4 +1,6 @@
 package com.paklog.vas.application.service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.paklog.vas.application.command.CreateVASOrderCommand;
 import com.paklog.vas.application.port.in.VASUseCase;
@@ -6,39 +8,43 @@ import com.paklog.vas.application.port.out.PublishEventPort;
 import com.paklog.vas.domain.aggregate.*;
 import com.paklog.vas.domain.repository.VASOrderRepository;
 import com.paklog.vas.domain.service.WorkflowOrchestratorService;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
 import java.util.UUID;
 
-@Slf4j
 @Service
-@RequiredArgsConstructor
 public class VASApplicationService implements VASUseCase {
+    private static final Logger log = LoggerFactory.getLogger(VASApplicationService.class);
+
 
     private final VASOrderRepository orderRepository;
     private final WorkflowOrchestratorService orchestratorService;
     private final PublishEventPort publishEventPort;
+    public VASApplicationService(VASOrderRepository orderRepository, WorkflowOrchestratorService orchestratorService, PublishEventPort publishEventPort) {
+        this.orderRepository = orderRepository;
+        this.orchestratorService = orchestratorService;
+        this.publishEventPort = publishEventPort;
+    }
+
 
     @Override
     @Transactional
     public String createOrder(CreateVASOrderCommand command) {
-        log.info("Creating VAS order for service: {}", command.getServiceType());
+        log.info("Creating VAS order for service: {}", command.serviceType());
 
         VASOrder order = VASOrder.builder()
             .id(UUID.randomUUID().toString())
             .orderNumber("VAS-" + Instant.now().getEpochSecond())
-            .customerId(command.getCustomerId())
-            .warehouseId(command.getWarehouseId())
-            .serviceType(command.getServiceType())
-            .priority(command.getPriority())
-            .billingType(command.getBillingType())
-            .billingRate(command.getBillingRate())
-            .steps(orchestratorService.createWorkflowSteps(command.getServiceType()))
-            .slaHours(orchestratorService.calculateSLAHours(command.getServiceType()))
+            .customerId(command.customerId())
+            .warehouseId(command.warehouseId())
+            .serviceType(command.serviceType())
+            .priority(command.priority())
+            .billingType(command.billingType())
+            .billingRate(command.billingRate())
+            .steps(orchestratorService.createWorkflowSteps(command.serviceType()))
+            .slaHours(orchestratorService.calculateSLAHours(command.serviceType()))
             .build();
 
         order.initiate();

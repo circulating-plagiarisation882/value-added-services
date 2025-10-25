@@ -1,9 +1,5 @@
 package com.paklog.value.added.services.domain.aggregate;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,10 +8,6 @@ import java.time.Instant;
 /**
  * VASOrder Aggregate Root
  */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Document(collection = "vasorders")
 public class VASOrder {
 
@@ -26,4 +18,15 @@ public class VASOrder {
     private Instant updatedAt;
 
     // Domain logic methods here
+
+
+    // Getters
+    public String getId() { return id; }
+    public Instant getCreatedAt() { return createdAt; }
+    public Instant getUpdatedAt() { return updatedAt; }
+
+    // Setters
+    public void setId(String id) { this.id = id; }
+    public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
+    public void setUpdatedAt(Instant updatedAt) { this.updatedAt = updatedAt; }
 }

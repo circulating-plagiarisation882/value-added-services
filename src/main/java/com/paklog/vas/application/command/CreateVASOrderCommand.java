@@ -1,23 +1,21 @@
 package com.paklog.vas.application.command;
 
-import com.paklog.vas.domain.valueobject.*;
-import lombok.*;
-import javax.validation.constraints.*;
+import com.paklog.vas.domain.valueobject.ServiceType;
+import com.paklog.vas.domain.valueobject.ServicePriority;
+import com.paklog.vas.domain.valueobject.BillingType;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class CreateVASOrderCommand {
+public record CreateVASOrderCommand(
     @NotBlank
-    private String customerId;
+    String customerId,
     @NotBlank
-    private String warehouseId;
+    String warehouseId,
     @NotNull
-    private ServiceType serviceType;
+    ServiceType serviceType,
     @NotNull
-    private ServicePriority priority;
+    ServicePriority priority,
     @NotNull
-    private BillingType billingType;
-    private double billingRate;
-}
+    BillingType billingType,
+    double billingRate
+) {}

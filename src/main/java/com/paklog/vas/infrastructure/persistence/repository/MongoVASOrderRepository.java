@@ -3,7 +3,6 @@ package com.paklog.vas.infrastructure.persistence.repository;
 import com.paklog.vas.domain.aggregate.VASOrder;
 import com.paklog.vas.domain.repository.VASOrderRepository;
 import com.paklog.vas.domain.valueobject.WorkflowStatus;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.*;
 import org.springframework.stereotype.Repository;
@@ -11,10 +10,13 @@ import java.time.Instant;
 import java.util.*;
 
 @Repository
-@RequiredArgsConstructor
 public class MongoVASOrderRepository implements VASOrderRepository {
 
     private final MongoTemplate mongoTemplate;
+    public MongoVASOrderRepository(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
+
 
     @Override
     public VASOrder save(VASOrder order) {

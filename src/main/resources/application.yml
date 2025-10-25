@@ -34,7 +34,7 @@ springdoc:
 
 vas:
   events:
-    topic: vas.events
+    topic: support-intelligence.value-added-services.events
   workflow:
     max-components-per-kit: 20
     max-rework-attempts: 2

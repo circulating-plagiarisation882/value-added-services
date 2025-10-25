@@ -1,24 +1,28 @@
 package com.paklog.vas.infrastructure.web.controller;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.paklog.vas.application.command.CreateVASOrderCommand;
 import com.paklog.vas.application.port.in.VASUseCase;
 import com.paklog.vas.domain.aggregate.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/v1/vas")
-@RequiredArgsConstructor
 @Tag(name = "Value-Added Services", description = "VAS operations")
 public class VASController {
+    private static final Logger log = LoggerFactory.getLogger(VASController.class);
+
 
     private final VASUseCase vasUseCase;
+    public VASController(VASUseCase vasUseCase) {
+        this.vasUseCase = vasUseCase;
+    }
+
 
     @PostMapping("/orders")
     @Operation(summary = "Create VAS order")

